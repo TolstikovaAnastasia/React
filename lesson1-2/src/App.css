@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.message {
+  padding: 5px;
+  border: 1px solid black;
+  font-size: 25px;
+  width: 200px;
+}
