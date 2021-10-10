@@ -1,0 +1,3 @@
+
+export const PROFILE_TRUE = 'PROFILE_TRUE';
+export const PROFILE_FALSE = 'PROFILE_FALSE';
