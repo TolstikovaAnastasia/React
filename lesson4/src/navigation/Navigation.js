@@ -2,7 +2,7 @@ const composePath = (...args) => args.map((item) => (typeof item === 'function' 
 
 export const getHomePath = () => '';
 
-export const getChatsPath = () => composePath(getHomePath(), 'articles');
+export const getChatsPath = () => composePath(getHomePath(), 'chats');
 
 export const getChatsByIdPath = (chatId = ':chatId') => composePath(getChatsPath(), chatId);
 
