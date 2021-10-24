@@ -1,19 +1,14 @@
-import { PROFILE_TRUE, PROFILE_FALSE } from "./actionTypes.js";
+import { PROFILE_CONTENT } from "./actionTypes.js";
 
 const initialState = {
-    content: '',
+    content: true
 }
 
 export const profileReducer = (state = initialState, action) => {
     switch(action?.type) {
-        case PROFILE_TRUE: {
+        case PROFILE_CONTENT: {
             return {
-                content: state.content + 'true'
-            }
-        }
-        case PROFILE_FALSE: {
-            return {
-                content: state.content + 'false'
+                content: !state.content
             }
         }
         default: {

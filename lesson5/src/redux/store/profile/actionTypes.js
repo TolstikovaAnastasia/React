@@ -1,3 +1,2 @@
 
-export const PROFILE_TRUE = 'PROFILE_TRUE';
-export const PROFILE_FALSE = 'PROFILE_FALSE';
+export const PROFILE_CONTENT = 'PROFILE_CONTENT';
