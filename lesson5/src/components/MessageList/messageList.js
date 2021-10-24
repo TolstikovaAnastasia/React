@@ -1,15 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { nanoid } from 'nanoid';
 import './messageList.css';
 
 export class MessageList extends React.Component {
   constructor() {
     super()
-    this.id = nanoid()
     this.state = {
       messages: [
-        { author: " ", text: " " },
+        { author: '', text: ''},
       ]
     }
     this.sendMessage = this.sendMessage.bind(this)
@@ -27,7 +24,7 @@ export class MessageList extends React.Component {
       <ul className="messageList">
         {this.state.messages.map((message) => {
           return (
-            <li key={this.id}>
+            <li key={message.id}>
               <div>{message.author}</div>
               <div>{message.text}</div>
             </li>
@@ -37,8 +34,3 @@ export class MessageList extends React.Component {
     )
   }
 }
-
-ReactDOM.render(
-  <MessageList />,
-  document.getElementById("root")
-);
