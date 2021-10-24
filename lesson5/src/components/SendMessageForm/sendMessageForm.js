@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button, TextField } from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
+import './sendMessageForm.css';
 
 export class SendMessageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: ''
+            message: {
+                author: '',
+                text: ''
+            }
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,30 +26,33 @@ export class SendMessageForm extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.message !== this.state.message) {
+            return prevState.message;
+        } else if (prevProps.message.author !== 'bot') {
+            return this.message = {
+                author: 'bot',
+                text: 'Ваше сообщение могут видеть все участники чата'
+            };
+        }
+    }
+
     render(){
         return (
             <div className="sendMessageForm">
                 <form>
-                    <TextField id="outlined-basic" variant="outlined" autoFocus
-                        className="messageForm"
-                        type="text"
-                        value={this.state.message} 
+                    <input className="messageForm"
+                        type="text" 
+                        value={this.componentDidUpdate} 
                         onChange={this.handleChange} 
-                        placeholder="Type message to send"
-                        size="small"/>
-                    <Button variant="contained" endIcon={<SendIcon />} className="buttonForm"
+                        placeholder="Type message to send" />
+                    <button className="buttonForm"
                         type="submit" 
-                        onClick={this.handleSubmit}
-                        size="medium">
+                        onClick={this.handleSubmit}>
                         Send
-                    </Button>
+                    </button>
                 </form>
             </div>
         )
     }
 }
-
-ReactDOM.render(
-    <SendMessageForm />,
-    document.getElementById('root')
-);
