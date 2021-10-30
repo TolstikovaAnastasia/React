@@ -1,0 +1,2 @@
+
+export const PROFILE_CONTENT = 'PROFILE_CONTENT';
